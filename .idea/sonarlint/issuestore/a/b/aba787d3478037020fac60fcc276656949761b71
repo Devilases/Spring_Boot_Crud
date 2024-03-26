@@ -1,0 +1,14 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(äÅÐÓúÿÿÿÿ8¼³¡Òç1
+r
+java:S1989N"PHandle the following exception that could be thrown by "getWriter": IOException.(¿—Èœùÿÿÿÿ8î‘ÂÓç1
+r
+java:S1989e"PHandle the following exception that could be thrown by "getWriter": IOException.(¿—Èœùÿÿÿÿ8ó‘ÂÓç1
+k
+java:S1989m"NHandle the following exception that could be thrown by "getJson": IOException.(¥ÖÃæ8ùöÁÓç1
+r
+java:S1989x"PHandle the following exception that could be thrown by "getWriter": IOException.(¿—Èœùÿÿÿÿ8ø‘ÂÓç1
+l
+java:S1989€"NHandle the following exception that could be thrown by "getJson": IOException.(¥ÖÃæ8ýöÁÓç1
+s
+java:S1989Ž"PHandle the following exception that could be thrown by "getWriter": IOException.(¿—Èœùÿÿÿÿ8ý‘ÂÓç1
