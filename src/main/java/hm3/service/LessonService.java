@@ -7,18 +7,15 @@ import hm3.entity.Lesson;
 import hm3.exception.NotFoundException;
 import hm3.mapper.LessonDtoMapperImpl;
 import hm3.mapper.specification.LessonDtoMapper;
-import hm3.repo.LessonRepository;
-
+import hm3.repo.hiber.LessonRepoHibernateImpl;
 import hm3.repo.specification.LessonRepo;
-
 import hm3.service.specification.LessonServiceInter;
-
 import java.util.List;
 
 
 public class LessonService implements LessonServiceInter {
 
-  private LessonRepo lessonRepo = LessonRepository.getInstance();
+  private LessonRepo lessonRepo = LessonRepoHibernateImpl.getInstance();
 
   private LessonDtoMapper lessonDtoMapper = LessonDtoMapperImpl.getInstance();
 

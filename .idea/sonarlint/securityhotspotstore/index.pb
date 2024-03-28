@@ -3,10 +3,6 @@
 	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 7
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
-R
-"src/main/java/hm2/MyArrayList.java,b/5/b55a9c664c04ccb701afe5b6e82cd594df32d1e6
-V
-&src/test/java/hm2/MyArrayListTest.java,0/8/086fa0392acaffc6ea7d6482d33957bd4648a2f6
 U
 %src/main/java/hm3/Entity/Student.java,3/5/35b7cc74e4de6f1076ab0167f0cc38ec64d9816d
 U
@@ -150,8 +146,6 @@ Q.idea/sonarlint/securityhotspotstore/1/1/11662d86659ba34b0967395dd4ce573bc63367
 Å
 Q.idea/sonarlint/securityhotspotstore/5/0/50cda402cb2ae972bc5235ad6cec78b971a433a1,0/b/0b584b77017f163def25ad68fa86d2714172ede2
 Å
-Q.idea/sonarlint/securityhotspotstore/0/8/086fa0392acaffc6ea7d6482d33957bd4648a2f6,9/b/9be1eb7ed2872ef316435568d44cc11090ac5ac1
-Å
 Q.idea/sonarlint/securityhotspotstore/f/8/f8d6f6656fe85b7c64cbb35ad9e5edf60a41e401,a/a/aa061e0c1feaf95903b08a49db3937127cbc16d1
 Å
 Q.idea/sonarlint/securityhotspotstore/8/6/86528d6843cf2213c2079e9f50e83b90c027ca03,f/2/f2869354dee0af858c106920456200491a9b4781
@@ -159,12 +153,8 @@ Q.idea/sonarlint/securityhotspotstore/8/6/86528d6843cf2213c2079e9f50e83b90c027ca
 Q.idea/sonarlint/securityhotspotstore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec,2/c/2cabb939da04d3de3a200bf2b575690e1a16316d
 Å
 Q.idea/sonarlint/securityhotspotstore/9/d/9db8fb439c16aad4063a77fb97fcee25f48783e2,c/e/ce197f1ae89cf2971f1570b047f170eb058d32d6
-w
-G.idea/sonarlint/issuestore/0/8/086fa0392acaffc6ea7d6482d33957bd4648a2f6,d/3/d300381ca5f43cf3310aa873782006cfc9ad1603
 Å
 Q.idea/sonarlint/securityhotspotstore/b/7/b7c80acb787e60b61f4a77f14f1e37bb2fdc00c9,e/2/e263db939a1767962b14515e7b0b39ddeed5291b
-Å
-Q.idea/sonarlint/securityhotspotstore/b/5/b55a9c664c04ccb701afe5b6e82cd594df32d1e6,c/1/c12c22cfeac15959694bc69e96dbea7fec5d4a73
 w
 G.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec,8/6/863e0292fd7e9b3e74dafd6cc01f73ba76346482
 Å
@@ -254,3 +244,11 @@ Q.idea/sonarlint/securityhotspotstore/5/4/5420b34bc5a787e74f5781f8b3f0518aeaed3d
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+q
+Asrc/main/java/hm3/db/config/PropertiesSessionFactoryProvider.java,3/b/3b50637ed8fb6bd49be45d0107a44fd98bd69624
+j
+:src/main/java/hm3/repo/hiber/TeacherRepoHibernateImpl.java,b/b/bb598e3264ae0d21dd1fd82d5ab1a748e76677dd
+i
+9src/main/java/hm3/repo/hiber/LessonRepoHibernateImpl.java,4/5/458cdb05b31b7c3957ac95d280d4f68111a75110
+j
+:src/main/java/hm3/repo/hiber/StudentRepoHibernateImpl.java,5/5/55ce152212e962f3699c2fcbbeb40841f53dbbe8

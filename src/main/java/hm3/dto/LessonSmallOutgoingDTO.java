@@ -1,7 +1,5 @@
 package hm3.dto;
 
-import java.util.List;
-
 public class LessonSmallOutgoingDTO {
 
   private Integer id;

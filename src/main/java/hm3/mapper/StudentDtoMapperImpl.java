@@ -1,6 +1,5 @@
 package hm3.mapper;
 
-import hm3.dto.LessonSmallOutgoingDTO;
 import hm3.dto.StudentIncomingDTO;
 import hm3.dto.StudentOutgoingDTO;
 import hm3.dto.StudentUpdateDTO;
@@ -33,16 +32,9 @@ public class StudentDtoMapperImpl implements StudentDtoMapper {
 
   @Override
   public StudentOutgoingDTO map(Student student) {
-    List<LessonSmallOutgoingDTO> lessonList = student.getLessons()
-        .stream().map(lesson -> new LessonSmallOutgoingDTO(
-            lesson.getId(),
-            lesson.getName()
-        )).toList();
-
     return new StudentOutgoingDTO(
         student.getId(),
-        student.getName(),
-        lessonList
+        student.getName()
     );
   }
 

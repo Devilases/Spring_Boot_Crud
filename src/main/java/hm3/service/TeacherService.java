@@ -7,14 +7,14 @@ import hm3.entity.Teacher;
 import hm3.exception.NotFoundException;
 import hm3.mapper.TeacherDtoMapperIml;
 import hm3.mapper.specification.TeacherDtoMapper;
-import hm3.repo.TeacherRepository;
+import hm3.repo.hiber.TeacherRepoHibernateImpl;
 import hm3.repo.specification.TeacherRepo;
 import hm3.service.specification.TeacherServiceInter;
 import java.util.List;
 
 public class TeacherService implements TeacherServiceInter {
 
-  private TeacherRepo teacherRepo = TeacherRepository.getInstance();
+  private TeacherRepo teacherRepo = TeacherRepoHibernateImpl.getInstance();
   private static TeacherServiceInter instance;
   private final TeacherDtoMapper teacherDtoMapper = TeacherDtoMapperIml.getInstance();
 

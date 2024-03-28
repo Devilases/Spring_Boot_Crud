@@ -1,15 +1,25 @@
 package hm3.entity;
 
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.util.Objects;
 
+@Entity
+@Table(name = "teacher")
 public class Teacher {
 
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
   private String name;
 
   public Teacher() {
   }
+
 
   public Teacher(Integer id, String name) {
     this.id = id;
@@ -54,5 +64,14 @@ public class Teacher {
     int result = id != null ? id.hashCode() : 0;
     result = 31 * result + (name != null ? name.hashCode() : 0);
     return result;
+  }
+
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("Teacher{");
+    sb.append("id=").append(id);
+    sb.append(", name='").append(name).append('\'');
+    sb.append('}');
+    return sb.toString();
   }
 }

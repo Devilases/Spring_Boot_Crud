@@ -1,16 +1,36 @@
 package hm3.entity;
 
-import hm3.repo.LessonToStudentRepository;
-import hm3.repo.specification.LessonToStudentRepo;
+import hm3.repo.hiber.StudentRepoHibernateImpl;
+import hm3.repo.specification.StudentRepo;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
+@Table(name = "student")
 public class Student {
-  private static LessonToStudentRepo lessonToStudentRepo = LessonToStudentRepository.getInstance();
 
+  private static StudentRepo studentRepo = StudentRepoHibernateImpl.getInstance();
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
   private String name;
+  @ManyToMany(cascade = CascadeType.MERGE)
+  @JoinTable(name = "lesson_student",
+      joinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id"),
+      inverseJoinColumns = @JoinColumn(name = "lesson_id", referencedColumnName = "id"))
   private List<Lesson> lessons;
+
+  public Student() {
+  }
 
   public Student(Integer id, String name, List<Lesson> list) {
     this.id = id;
@@ -35,10 +55,26 @@ public class Student {
   }
 
   public List<Lesson> getLessons() {
-    if(lessons == null){
-      lessons = lessonToStudentRepo.findLessonByStudentId(this.id);
+    if (lessons == null) {
+      lessons = studentRepo.findLessonByStudentId(this.id);
     }
     return lessons;
+  }
+
+  public void addLesson(Lesson lesson) {
+    lessons.add(lesson);
+  }
+
+  public void deleteLesson(Lesson lesson) {
+    int index = -1;
+    for (Lesson lesson1 : lessons) {
+      if (Objects.equals(lesson.getId(), lesson1.getId())) {
+        index = lessons.indexOf(lesson1);
+      }
+    }
+    if (index >= 0) {
+      lessons.remove(index);
+    }
   }
 
   public void setLessons(List<Lesson> lessons) {
@@ -79,7 +115,7 @@ public class Student {
     final StringBuilder sb = new StringBuilder("Student{");
     sb.append("id=").append(id);
     sb.append(", name='").append(name).append('\'');
-    sb.append(", list=").append(lessons);
+    sb.append(", lessons=").append(lessons);
     sb.append('}');
     return sb.toString();
   }
