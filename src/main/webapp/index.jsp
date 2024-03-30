@@ -12,6 +12,6 @@
 <br/>
 
 
-<a href="teacher" class="btn btn-primary btn-default">Квест про пиратов</a>
+<a href="rest" class="btn btn-primary btn-default">Квест про пиратов</a>
 </body>
 </html>
