@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class LessonDtoMapperImpl implements LessonDtoMapper {
-  private StudentDtoMapper studentMapper;
-  private  TeacherDtoMapper teacherDtoMapper;
+  private final StudentDtoMapper studentMapper;
+  private final TeacherDtoMapper teacherDtoMapper;
 
 
   public LessonDtoMapperImpl(StudentDtoMapper studentMapper, TeacherDtoMapper teacherDtoMapper) {
@@ -54,6 +54,6 @@ public class LessonDtoMapperImpl implements LessonDtoMapper {
 
   @Override
   public List<LessonOutgoingDTO> map(List<Lesson> lessons) {
-    return lessons.stream().map(this::map).toList();
+   return lessons.stream().map(this::map).toList();
   }
 }

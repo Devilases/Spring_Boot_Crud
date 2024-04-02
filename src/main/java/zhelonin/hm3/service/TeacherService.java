@@ -1,5 +1,6 @@
 package zhelonin.hm3.service;
 
+import lombok.extern.slf4j.Slf4j;
 import zhelonin.hm3.dto.TeacherIncomingDTO;
 import zhelonin.hm3.dto.TeacherOutgoingDTO;
 import zhelonin.hm3.dto.TeacherUpdateDTO;
@@ -12,6 +13,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class TeacherService implements TeacherServiceInter {
 
   private TeacherRepo teacherRepo;
@@ -56,7 +58,9 @@ public class TeacherService implements TeacherServiceInter {
   @Override
   public List<TeacherOutgoingDTO> findAll() {
     List<Teacher> teacherList = teacherRepo.findAll();
-    return teacherDtoMapper.map(teacherList);
+    log.info("findAll return value");
+    List<TeacherOutgoingDTO> map = teacherDtoMapper.map(teacherList);
+    return map;
   }
 
   @Override

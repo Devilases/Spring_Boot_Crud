@@ -1,8 +1,0 @@
-
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(´Þ‚†ùÿÿÿÿ8£€²Ñè1
-Y
-java:S1128	"<Remove this unused import 'hm3.mapper.StudentDtoMapperImpl'.(ã®Ö—8œ»²Ñè1
-e
-java:S1128"CRemove this unused import 'hm3.repo.hiber.LessonRepoHibernateImpl'.(»“º¶øÿÿÿÿ8œ»²Ñè1
-a
-java:S1128"DRemove this unused import 'hm3.repo.hiber.StudentRepoHibernateImpl'.(úèÛ–8œ»²Ñè1

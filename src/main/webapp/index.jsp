@@ -7,11 +7,14 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
-<h1><%= "Квесты" %>
+<h1><%= "Spring MVC 5 Crud App" %>
 </h1>
 <br/>
 
 
-<a href="rest" class="btn btn-primary btn-default">Квест про пиратов</a>
+<a href="teacher/all" class="btn btn-primary btn-default">Teacher</a>
+<a href="less/all" class="btn btn-primary btn-default">Lesson</a>
+<a href="stud/all" class="btn btn-primary btn-default">Student</a>
+
 </body>
 </html>

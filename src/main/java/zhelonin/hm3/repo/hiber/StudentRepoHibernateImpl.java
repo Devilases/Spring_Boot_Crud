@@ -1,6 +1,6 @@
 package zhelonin.hm3.repo.hiber;
 
-import zhelonin.hm3.db.config.PropertiesSessionFactoryProvider;
+import zhelonin.hm3.db.SessionFactoryProvider;
 import zhelonin.hm3.entity.Lesson;
 import zhelonin.hm3.entity.Student;
 import zhelonin.hm3.repo.specification.StudentRepo;
@@ -15,17 +15,23 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class StudentRepoHibernateImpl implements StudentRepo {
 
+  private SessionFactory sessionFactory = null;
+  private SessionFactoryProvider sessionFactoryProvider;
 
-  PropertiesSessionFactoryProvider p;
-  private SessionFactory sessionFactory = p.getSessionFactory();
 
-  public StudentRepoHibernateImpl(PropertiesSessionFactoryProvider p) {
-    this.p = p;
+  public StudentRepoHibernateImpl(SessionFactoryProvider sessionFactoryProvider) {
+    this.sessionFactoryProvider = sessionFactoryProvider;
   }
 
+  private SessionFactory initSessionFactory(){
+    if (sessionFactory == null) {
+      sessionFactory = sessionFactoryProvider.getSessionFactory();
+    }
+    return sessionFactory;
+  }
   @Override
   public Student save(Student student) {
-    try(Session session = sessionFactory.openSession()) {
+    try(Session session = initSessionFactory().openSession()) {
       Transaction transaction = session.getTransaction();
       transaction.begin();
       Integer id = (Integer) session.save(student);
@@ -37,7 +43,7 @@ public class StudentRepoHibernateImpl implements StudentRepo {
 
   @Override
   public void update(Student student) {
-    try(Session session = sessionFactory.openSession()){
+    try(Session session = initSessionFactory().openSession()){
       Transaction transaction = session.getTransaction();
       transaction.begin();
       session.update(student);
@@ -52,8 +58,8 @@ public class StudentRepoHibernateImpl implements StudentRepo {
 
   @Override
   public Optional<Student> findById(Integer id) {
-    Student student = null;
-    try(Session session = sessionFactory.openSession()){
+    Student student;
+    try(Session session = initSessionFactory().openSession()){
       Query<Student> query = session.createQuery("from Student s left join fetch s.lessons where s.id = :id", Student.class);
       query.setParameter("id",id);
       student = query.getSingleResult();
@@ -63,7 +69,7 @@ public class StudentRepoHibernateImpl implements StudentRepo {
 
   @Override
   public List<Student> findAll() {
-    try(Session session = sessionFactory.openSession()){
+    try(Session session = initSessionFactory().openSession()){
       Query<Student> query = session.createQuery("from Student s left join fetch s.lessons", Student.class);
       return query.list();
     }
@@ -72,7 +78,7 @@ public class StudentRepoHibernateImpl implements StudentRepo {
   @Override
   public boolean exitsById(Integer id) {
     boolean isExist = false;
-    try(Session session = sessionFactory.openSession()){
+    try(Session session = initSessionFactory().openSession()){
       Student student = session.get(Student.class, id);
       if(student != null) isExist = true;
     }
@@ -81,8 +87,8 @@ public class StudentRepoHibernateImpl implements StudentRepo {
 
   @Override
   public List<Lesson> findLessonByStudentId(Integer stdId) {
-    Student student = null;
-    try(Session session = sessionFactory.openSession()){
+    Student student;
+    try(Session session = initSessionFactory().openSession()){
       Query<Student> query = session.createQuery("from Student s join fetch s.lessons where s.id = :id", Student.class);
       query.setParameter("id",stdId);
       student = query.getSingleResult();

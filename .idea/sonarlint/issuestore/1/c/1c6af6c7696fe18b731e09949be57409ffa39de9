@@ -1,21 +1,0 @@
-
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÛÚ8£ñœÓè1
-š
-java:S1130"xRemove the declaration of thrown exception 'hm3.exception.NotFoundException', as it cannot be thrown from method's body.(§ÉÛ¤üÿÿÿÿ8°ñœÓè1
-S
-java:S1128"6Remove this unused import 'hm3.dto.LessonIncomingDTO'.(±´—Œ8µñœÓè1
-T
-java:S1128"7Remove this unused import 'hm3.dto.StudentIncomingDTO'.(¦ÍÎº8µñœÓè1
-R
-java:S1128"5Remove this unused import 'hm3.dto.StudentUpdateDTO'.(çïÑ¤8¶ñœÓè1
-Q
-java:S1128"/Remove this unused import 'hm3.entity.Teacher'.(ç‘Åøùÿÿÿÿ8¶ñœÓè1
-X
-java:S1128
-"6Remove this unused import 'hm3.service.LessonService'.(ŠÏİ’ıÿÿÿÿ8¶ñœÓè1
-Y
-java:S1128"7Remove this unused import 'hm3.service.StudentService'.(ñ’ÑŒúÿÿÿÿ8¶ñœÓè1
-e
-java:S1128"IRemove this unused import 'hm3.service.specification.LessonServiceInter'.(ìåÛi8¶ñœÓè1
-l
-java:S1128"JRemove this unused import 'hm3.service.specification.StudentServiceInter'.(¹¨õìÿÿÿÿÿ8¶ñœÓè1

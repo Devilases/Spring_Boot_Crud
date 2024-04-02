@@ -1,6 +1,6 @@
 package zhelonin.hm3.repo.hiber;
 
-import zhelonin.hm3.db.config.PropertiesSessionFactoryProvider;
+import zhelonin.hm3.db.SessionFactoryProvider;
 import zhelonin.hm3.entity.Teacher;
 import zhelonin.hm3.repo.specification.TeacherRepo;
 import java.util.List;
@@ -15,17 +15,23 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class TeacherRepoHibernateImpl implements TeacherRepo {
 
-  private PropertiesSessionFactoryProvider p;
-  private SessionFactory sessionFactory = p.getSessionFactory();
+  private SessionFactory sessionFactory = null;
+  private SessionFactoryProvider sessionFactoryProvider;
 
-  public TeacherRepoHibernateImpl(PropertiesSessionFactoryProvider p) {
-    this.p = p;
+
+  public TeacherRepoHibernateImpl(SessionFactoryProvider sessionFactoryProvider) {
+    this.sessionFactoryProvider = sessionFactoryProvider;
   }
 
+  private SessionFactory initSessionFactory(){
+    if (sessionFactory == null) {
+      sessionFactory = sessionFactoryProvider.getSessionFactory();
+    }
+    return sessionFactory;
+  }
   @Override
   public Teacher save(Teacher teacher) {
-
-    try(Session session = sessionFactory.openSession()){
+    try(Session session = initSessionFactory().openSession()){
       Transaction transaction = session.getTransaction();
       transaction.begin();
       Integer id = (Integer)session.save(teacher);
@@ -33,12 +39,11 @@ public class TeacherRepoHibernateImpl implements TeacherRepo {
       transaction.commit();
       return session.get(Teacher.class, id);
     }
-
   }
 
   @Override
   public void update(Teacher teacher) {
-    try(Session session = sessionFactory.openSession()){
+    try(Session session = initSessionFactory().openSession()){
       Transaction transaction = session.getTransaction();
       transaction.begin();
       session.update(teacher);
@@ -48,7 +53,7 @@ public class TeacherRepoHibernateImpl implements TeacherRepo {
 
   @Override
   public boolean deleteById(Integer id) {
-    try(Session session = sessionFactory.openSession()){
+    try(Session session = initSessionFactory().openSession()){
       Transaction transaction = session.getTransaction();
       transaction.begin();
       Teacher teacher = session.get(Teacher.class, id);
@@ -60,8 +65,8 @@ public class TeacherRepoHibernateImpl implements TeacherRepo {
 
   @Override
   public Optional<Teacher> findById(Integer id) {
-    Teacher teacher = null;
-    try(Session session = sessionFactory.openSession()){
+    Teacher teacher;
+    try(Session session = initSessionFactory().openSession()){
       teacher = session.get(Teacher.class, id);
     }
     return Optional.ofNullable(teacher);
@@ -69,7 +74,7 @@ public class TeacherRepoHibernateImpl implements TeacherRepo {
 
   @Override
   public List<Teacher> findAll() {
-    try(Session session = sessionFactory.openSession()){
+    try(Session session = initSessionFactory().openSession()){
       Query<Teacher> query = session.createQuery("from Teacher ", Teacher.class);
       return query.list();
     }
@@ -78,7 +83,7 @@ public class TeacherRepoHibernateImpl implements TeacherRepo {
   @Override
   public boolean exitsById(Integer id) {
     boolean isExist = false;
-    try(Session session = sessionFactory.openSession()){
+    try(Session session = initSessionFactory().openSession()){
       Teacher teacher = session.get(Teacher.class, id);
       if(teacher != null) isExist = true;
     }
