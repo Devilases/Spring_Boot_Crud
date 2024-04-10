@@ -124,3 +124,13 @@ j
 :src/main/java/zhelonin/hm3/controller/HelloController.java,4/0/408a30bb92febb16e032623ba73d9747a6b1bd09
 p
 @src/main/java/zhelonin/hm3/controller/TeacherRestController.java,e/7/e7103f69148b0f7d117cdd25bdfee789b827c373
+Z
+*src/main/java/SpringApplicationRunner.java,5/c/5ca75d808ee07b421269fb19b95c77211a2a9c14
+g
+7src/main/java/zhelonin/hm3/SpringApplicationRunner.java,3/c/3c691bf08c074bf2643c40ab569234bc68c992fb
+k
+;src/main/java/zhelonin/hm3/repo/boot/TeacherRepository.java,a/5/a5f680796acef72cadbe68004bcf8e403416a7f1
+j
+:src/main/java/zhelonin/hm3/repo/boot/LessonRepository.java,d/5/d5bd5059dd6d6ae89e2fbc0cd8acfb5db43fc80d
+k
+;src/main/java/zhelonin/hm3/repo/boot/StudentRepository.java,d/1/d1bda0aed3749539d80ea0798f3a7f8e5fc0870f

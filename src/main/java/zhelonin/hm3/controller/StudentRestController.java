@@ -68,8 +68,11 @@ public class StudentRestController {
   @PutMapping("/{studId}/addLesson/{lessId}")
   public ResponseEntity<Void> addLessonToStudent(@PathVariable Integer studId,@PathVariable Integer lessId)
       throws NotFoundException {
+      log.info("addLesson start");
       studentService.addLessonToStudent(studId, lessId);
+      log.info("addLesson end");
       return ResponseEntity.accepted().build();
+
   }
 
   @PutMapping("/{studId}/deleteLesson/{lessId}")

@@ -7,7 +7,7 @@ import zhelonin.hm3.dto.TeacherUpdateDTO;
 import zhelonin.hm3.entity.Teacher;
 import zhelonin.hm3.exception.NotFoundException;
 import zhelonin.hm3.mapper.specification.TeacherDtoMapper;
-import zhelonin.hm3.repo.specification.TeacherRepo;
+import zhelonin.hm3.repo.boot.TeacherRepository;
 import zhelonin.hm3.service.specification.TeacherServiceInter;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -16,17 +16,17 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class TeacherService implements TeacherServiceInter {
 
-  private TeacherRepo teacherRepo;
+  private TeacherRepository teacherRepo;
   private  TeacherDtoMapper teacherDtoMapper;
 
 
-  public TeacherService(TeacherRepo teacherRepo, TeacherDtoMapper teacherDtoMapper) {
+  public TeacherService(TeacherRepository teacherRepo, TeacherDtoMapper teacherDtoMapper) {
     this.teacherRepo = teacherRepo;
     this.teacherDtoMapper = teacherDtoMapper;
   }
 
   private void checkTeacherExist(Integer teacherId) throws NotFoundException {
-    if (!teacherRepo.exitsById(teacherId)) {
+    if (!teacherRepo.existsById(teacherId)) {
       throw new NotFoundException("Teacher not found.");
     }
   }
@@ -43,7 +43,7 @@ public class TeacherService implements TeacherServiceInter {
   public void update(TeacherUpdateDTO teacherDto) throws NotFoundException {
     checkTeacherExist(teacherDto.getId());
     Teacher teacher = teacherDtoMapper.map(teacherDto);
-    teacherRepo.update(teacher);
+    teacherRepo.saveAndFlush(teacher);
   }
 
   @Override
@@ -66,6 +66,7 @@ public class TeacherService implements TeacherServiceInter {
   @Override
   public boolean delete(Integer teacherId) throws NotFoundException {
     checkTeacherExist(teacherId);
-    return teacherRepo.deleteById(teacherId);
+    teacherRepo.deleteById(teacherId);
+     return true;
   }
 }

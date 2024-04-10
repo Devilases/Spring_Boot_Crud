@@ -6,7 +6,7 @@ import zhelonin.hm3.dto.LessonUpdateDTO;
 import zhelonin.hm3.entity.Lesson;
 import zhelonin.hm3.exception.NotFoundException;
 import zhelonin.hm3.mapper.specification.LessonDtoMapper;
-import zhelonin.hm3.repo.specification.LessonRepo;
+import zhelonin.hm3.repo.boot.LessonRepository;
 import zhelonin.hm3.service.specification.LessonServiceInter;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -14,18 +14,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class LessonService implements LessonServiceInter {
 
-  private LessonRepo lessonRepo;
+  private LessonRepository lessonRepo;
 
   private LessonDtoMapper lessonDtoMapper;
 
 
-  public LessonService(LessonRepo lessonRepo, LessonDtoMapper lessonDtoMapper) {
+  public LessonService(LessonRepository lessonRepo, LessonDtoMapper lessonDtoMapper) {
     this.lessonRepo = lessonRepo;
     this.lessonDtoMapper = lessonDtoMapper;
   }
 
   private void checkLessonExist(Integer lessonId) throws NotFoundException {
-    if (!lessonRepo.exitsById(lessonId)) {
+    if (!lessonRepo.existsById(lessonId)) {
       throw new NotFoundException("Lesson not found.");
     }
   }
@@ -41,7 +41,7 @@ public class LessonService implements LessonServiceInter {
   public void update(LessonUpdateDTO lessonUpdateDTO) throws NotFoundException {
     checkLessonExist(lessonUpdateDTO.getId());
     Lesson lesson = lessonDtoMapper.map(lessonUpdateDTO);
-    lessonRepo.update(lesson);
+    lessonRepo.saveAndFlush(lesson);
   }
 
   @Override
