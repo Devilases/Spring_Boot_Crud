@@ -6,7 +6,7 @@ import zhelonin.hm3.dto.TeacherUpdateDTO;
 import zhelonin.hm3.exception.NotFoundException;
 import java.util.List;
 
-public interface TeacherServiceInter {
+public interface TeacherService {
 
   TeacherOutgoingDTO save(TeacherIncomingDTO teacherDto);
 

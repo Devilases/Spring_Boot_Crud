@@ -14,7 +14,7 @@ import zhelonin.hm3.dto.TeacherIncomingDTO;
 import zhelonin.hm3.dto.TeacherOutgoingDTO;
 import zhelonin.hm3.dto.TeacherUpdateDTO;
 import zhelonin.hm3.exception.NotFoundException;
-import zhelonin.hm3.service.specification.TeacherServiceInter;
+import zhelonin.hm3.service.specification.TeacherService;
 
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
@@ -27,10 +27,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class TeacherRestController {
 
-  private TeacherServiceInter teacherService;
+  private final TeacherService teacherService;
 
   @Autowired
-  public TeacherRestController(TeacherServiceInter teacherService) {
+  public TeacherRestController(TeacherService teacherService) {
     this.teacherService = teacherService;
 
   }

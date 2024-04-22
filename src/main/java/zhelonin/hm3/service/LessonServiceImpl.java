@@ -7,19 +7,19 @@ import zhelonin.hm3.entity.Lesson;
 import zhelonin.hm3.exception.NotFoundException;
 import zhelonin.hm3.mapper.specification.LessonDtoMapper;
 import zhelonin.hm3.repo.boot.LessonRepository;
-import zhelonin.hm3.service.specification.LessonServiceInter;
+import zhelonin.hm3.service.specification.LessonService;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
-public class LessonService implements LessonServiceInter {
+public class LessonServiceImpl implements LessonService {
 
-  private LessonRepository lessonRepo;
+  private final LessonRepository lessonRepo;
 
-  private LessonDtoMapper lessonDtoMapper;
+  private final LessonDtoMapper lessonDtoMapper;
 
 
-  public LessonService(LessonRepository lessonRepo, LessonDtoMapper lessonDtoMapper) {
+  public LessonServiceImpl(LessonRepository lessonRepo, LessonDtoMapper lessonDtoMapper) {
     this.lessonRepo = lessonRepo;
     this.lessonDtoMapper = lessonDtoMapper;
   }

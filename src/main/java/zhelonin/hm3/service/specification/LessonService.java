@@ -6,7 +6,7 @@ import zhelonin.hm3.dto.LessonUpdateDTO;
 import zhelonin.hm3.exception.NotFoundException;
 import java.util.List;
 
-public interface LessonServiceInter {
+public interface LessonService {
 
   LessonOutgoingDTO save(LessonIncomingDTO LessonInDto);
 

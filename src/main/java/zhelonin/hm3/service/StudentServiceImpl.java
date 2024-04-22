@@ -10,21 +10,19 @@ import zhelonin.hm3.exception.NotFoundException;
 import zhelonin.hm3.mapper.specification.StudentDtoMapper;
 import zhelonin.hm3.repo.boot.LessonRepository;
 import zhelonin.hm3.repo.boot.StudentRepository;
-import zhelonin.hm3.repo.specification.LessonRepo;
-import zhelonin.hm3.repo.specification.StudentRepo;
-import zhelonin.hm3.service.specification.StudentServiceInter;
+import zhelonin.hm3.service.specification.StudentService;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class StudentService implements StudentServiceInter {
+public class StudentServiceImpl implements StudentService {
 
-  private StudentRepository studentRepo;
-  private StudentDtoMapper studentDtoMapper;
-  private LessonRepository lessonRepo;
+  private final StudentRepository studentRepo;
+  private final StudentDtoMapper studentDtoMapper;
+  private final LessonRepository lessonRepo;
 
-  public StudentService(StudentRepository studentRepo, StudentDtoMapper studentDtoMapper,
+  public StudentServiceImpl(StudentRepository studentRepo, StudentDtoMapper studentDtoMapper,
       LessonRepository lessonRepo) {
     this.studentRepo = studentRepo;
     this.studentDtoMapper = studentDtoMapper;

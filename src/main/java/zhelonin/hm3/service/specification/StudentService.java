@@ -6,7 +6,7 @@ import zhelonin.hm3.dto.StudentUpdateDTO;
 import zhelonin.hm3.exception.NotFoundException;
 import java.util.List;
 
-public interface StudentServiceInter {
+public interface StudentService {
   StudentOutgoingDTO save(StudentIncomingDTO project);
 
   void update(StudentUpdateDTO project) throws NotFoundException;

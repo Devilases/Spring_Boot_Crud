@@ -10,7 +10,6 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 public class WebConfig implements WebApplicationInitializer {
 
-
   @Override
   public void onStartup(ServletContext servletContext) {
     AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();

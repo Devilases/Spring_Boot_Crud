@@ -17,7 +17,7 @@ import zhelonin.hm3.dto.LessonIncomingDTO;
 import zhelonin.hm3.dto.LessonOutgoingDTO;
 import zhelonin.hm3.dto.LessonUpdateDTO;
 import zhelonin.hm3.exception.NotFoundException;
-import zhelonin.hm3.service.specification.LessonServiceInter;
+import zhelonin.hm3.service.specification.LessonService;
 
 @RestController
 @Slf4j
@@ -25,9 +25,9 @@ import zhelonin.hm3.service.specification.LessonServiceInter;
 @RequestMapping("/less/*")
 public class LessonRestController {
 
-  private LessonServiceInter lessonService;
+  private final LessonService lessonService;
 
-  public LessonRestController(LessonServiceInter lessonService) {
+  public LessonRestController(LessonService lessonService) {
     this.lessonService = lessonService;
   }
 

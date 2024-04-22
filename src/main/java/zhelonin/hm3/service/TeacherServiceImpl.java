@@ -8,19 +8,19 @@ import zhelonin.hm3.entity.Teacher;
 import zhelonin.hm3.exception.NotFoundException;
 import zhelonin.hm3.mapper.specification.TeacherDtoMapper;
 import zhelonin.hm3.repo.boot.TeacherRepository;
-import zhelonin.hm3.service.specification.TeacherServiceInter;
+import zhelonin.hm3.service.specification.TeacherService;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class TeacherService implements TeacherServiceInter {
+public class TeacherServiceImpl implements TeacherService {
 
-  private TeacherRepository teacherRepo;
-  private  TeacherDtoMapper teacherDtoMapper;
+  private final TeacherRepository teacherRepo;
+  private final TeacherDtoMapper teacherDtoMapper;
 
 
-  public TeacherService(TeacherRepository teacherRepo, TeacherDtoMapper teacherDtoMapper) {
+  public TeacherServiceImpl(TeacherRepository teacherRepo, TeacherDtoMapper teacherDtoMapper) {
     this.teacherRepo = teacherRepo;
     this.teacherDtoMapper = teacherDtoMapper;
   }
@@ -59,8 +59,7 @@ public class TeacherService implements TeacherServiceInter {
   public List<TeacherOutgoingDTO> findAll() {
     List<Teacher> teacherList = teacherRepo.findAll();
     log.info("findAll return value");
-    List<TeacherOutgoingDTO> map = teacherDtoMapper.map(teacherList);
-    return map;
+    return teacherDtoMapper.map(teacherList);
   }
 
   @Override

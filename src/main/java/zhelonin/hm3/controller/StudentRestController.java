@@ -17,7 +17,7 @@ import zhelonin.hm3.dto.StudentOutgoingDTO;
 import zhelonin.hm3.dto.StudentUpdateDTO;
 
 import zhelonin.hm3.exception.NotFoundException;
-import zhelonin.hm3.service.specification.StudentServiceInter;
+import zhelonin.hm3.service.specification.StudentService;
 
 
 
@@ -27,9 +27,9 @@ import zhelonin.hm3.service.specification.StudentServiceInter;
 @RequestMapping("/stud/*")
 public class StudentRestController {
 
-  private StudentServiceInter studentService;
+  private final StudentService studentService;
 
-  public StudentRestController(StudentServiceInter studentService) {
+  public StudentRestController(StudentService studentService) {
     this.studentService = studentService;
   }
 
