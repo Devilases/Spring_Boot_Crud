@@ -40,8 +40,6 @@ W
 'src/main/webapp/WEB-INF/pages/hello.jsp,5/e/5ef63136f437d6bad4c79520c668934f88b85f8c
 ]
 -src/main/java/zhelonin/hm3/entity/Lesson.java,f/f/ff6cb05bae87af11d5b81362b86d59619e0385a3
-m
-=src/main/java/zhelonin/hm3/exception/RepositoryException.java,9/6/96c068f09f6f0cb1ef28b8f0dc0720c8f31239da
 ^
 .src/main/java/zhelonin/hm3/entity/Student.java,3/2/3256050e405024cf950d4ce7fcafc8cdf46d7807
 f
@@ -52,8 +50,6 @@ u
 Esrc/main/java/zhelonin/hm3/mapper/specification/StudentDtoMapper.java,b/7/b7ad2d2c366215b7d4a1876ff3d6815c10e17f95
 f
 6src/main/java/zhelonin/hm3/dto/TeacherIncomingDTO.java,e/8/e8dcf5941f26117a22d2854e74ac5b92a5e4623d
-u
-Esrc/main/java/zhelonin/hm3/exception/DataBaseDriverLoadException.java,7/a/7a3ae613dd85790f45e65aedd989fe2a2a6aac19
 d
 4src/main/java/zhelonin/hm3/dto/TeacherUpdateDTO.java,b/6/b65e0f1eb489a64919edae71302641f39e7f2a6a
 k
